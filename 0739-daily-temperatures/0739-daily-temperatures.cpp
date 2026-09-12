@@ -4,11 +4,11 @@ public:
         int n=temperatures.size();
         stack<int> st;
         vector<int> ans(n,0);
-        for( int i=0; i<n;i++){
+        for(int i=0;i<n;i++){
             while(!st.empty() && temperatures[i]>temperatures[st.top()]){
-                int idx=st.top();
+                int prev=st.top();
                 st.pop();
-                ans[idx]=i-idx;
+                ans[prev]=i-prev;
             }
             st.push(i);
         }
