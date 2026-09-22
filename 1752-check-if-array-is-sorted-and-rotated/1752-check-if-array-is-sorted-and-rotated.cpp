@@ -8,7 +8,9 @@ public:
                 drop++;
             }
         }
-        if(drop>1) return false;
+        if(drop>1){
+            return false;
+        }
         return true;
     }
 };
