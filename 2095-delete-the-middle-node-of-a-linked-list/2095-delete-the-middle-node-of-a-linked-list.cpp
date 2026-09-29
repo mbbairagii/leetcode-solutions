@@ -16,7 +16,7 @@ public:
         }
         ListNode* slow=head;
         ListNode* fast=head;
-        ListNode* prev=nullptr;
+        ListNode* prev=slow;
         while(fast!=nullptr && fast->next!=nullptr){
             prev=slow;
             slow=slow->next;
