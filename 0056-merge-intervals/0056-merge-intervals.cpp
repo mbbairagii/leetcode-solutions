@@ -1,3 +1,14 @@
+// 1. If the input is empty → return empty list.
+// 2. Sort intervals by their start coordinate (ascending).
+// 3. Initialise `merged` with the first interval.
+// 4. For each interval `i` from the second onward:
+//        let `last = merged.back()`.
+//        if i.start > last.end          // no overlap
+//             push i onto merged
+//        else                           // overlap
+//             last.end = max(last.end, i.end)   // extend the current merged interval
+// 5. Return `merged`.
+
 class Solution {
 public:
     vector<vector<int>> merge(vector<vector<int>>& intervals) {
