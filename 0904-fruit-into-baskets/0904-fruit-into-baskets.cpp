@@ -1,13 +1,15 @@
 class Solution {
 public:
     int totalFruit(vector<int>& fruits) {
+        //sliding-window+hashmap
         int n=fruits.size();
         int left=0;
-        int maxLen=0;
-        unordered_map<int,int> mp;
+        int maxFruits=0;
+        unordered_map<int, int> mp;
 
         for(int right=0;right<n;right++){
             mp[fruits[right]]++;
+
             while(mp.size()>2){
                 mp[fruits[left]]--;
                 if(mp[fruits[left]]==0){
@@ -16,9 +18,9 @@ public:
                 left++;
             }
 
-            maxLen=max(maxLen, right-left+1);
+            maxFruits = max(maxFruits, right - left + 1);
         }
 
-        return maxLen;
+        return maxFruits;
     }
 };
