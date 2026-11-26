@@ -1,17 +1,27 @@
 class Solution {
 public:
     int subarraySum(vector<int>& nums, int k) {
-        int n=nums.size();
+        //brute force: gen every subarray and calc its sum
+        //tc: O(n^2), sc:O(1)
+
+        //optimized approach with o(n): prefix sum with hashmap
+        unordered_map<int,int> mp;
+        mp[0]=1;
+
+        int prefix=0;
         int count=0;
-        for(int i=0;i<n;i++){
-            int sum=0;
-            for(int j=i;j<n;j++){
-                sum=sum+nums[j];
-                if(sum==k){
-                    count++;
-                }
+        for(int num: nums){
+            prefix += num;
+            int needed=prefix-k;
+
+            if(mp.find(needed)!=mp.end()){
+                count += mp[needed];
             }
+
+            mp[prefix]++;
         }
+
         return count;
+
     }
 };
