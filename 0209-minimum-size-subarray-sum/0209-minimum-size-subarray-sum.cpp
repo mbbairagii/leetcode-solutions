@@ -1,6 +1,7 @@
 class Solution {
 public:
     int minSubArrayLen(int target, vector<int>& nums) {
+        //sliding window
         int left=0;
         int sum=0;
         int ans=INT_MAX;
